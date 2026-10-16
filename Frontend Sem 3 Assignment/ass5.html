@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navratri Age Eligibility Checker Webpage</title>
+</head>
+<body>
+    <h2>Navratri Age Eligibility Checker Webpage</h2>
+    <script>
+
+        let date =  prompt("Enter your age:"); 
+
+        date = Number(date);
+
+        
+        if (date >= 1 && date <= 31 && Number.isFinite(date) && Number.isInteger(date)) {
+
+            alert("Hurray you are eligible!");
+
+            document.write("<h3>Hurray you are eligible!</h3>");
+
+          
+        } else { // 17
+            
+            alert("Sorry you are not eligible!");
+
+            document.write("<h3>Sorry you are not eligible!</h3>");
+        }
+
+    </script>
+
+</body>
+</html>
