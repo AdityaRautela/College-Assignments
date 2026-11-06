@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 7 - Interactive Applications</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        .container {
+            background-color: white;
+            width: 70%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            padding: 10px;
+            width: 60%;
+        }
+
+        button {
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: lightgray;
+            padding: 10px;
+            margin: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .delete {
+            background-color: red;
+        }
+
+        #mainImage {
+            width: 400px;
+            height: 250px;
+            object-fit: cover;
+            margin: 15px;
+        }
+
+        .thumbnails img {
+            width: 100px;
+            height: 70px;
+            object-fit: cover;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Interactive Applications</h1>
+
+    <!-- TO-DO LIST -->
+    <div class="container">
+
+        <h2>My To-Do List</h2>
+
+        <input type="text" id="taskInput"
+        placeholder="Enter your task">
+
+        <button onclick="addTask()">Add Task</button>
+
+        <ul id="taskList"></ul>
+
+     </div>
+
+     <div class="container">
+
+     <h2>Image Gallery</h2>
+
+     <img id="mainImage"
+     src="https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=600"
+     >
+
+    <div class="thumbnails">
+
+        <img src="https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=600"
+        onclick="changeImage(this)">
+
+        <img src="https://picsum.photos/id/1025/600/400"
+        onclick="changeImage(this)">
+
+        <img src="https://picsum.photos/id/1035/600/400"
+        onclick="changeImage(this)">
+
+        <img src="https://picsum.photos/id/1040/600/400"
+        onclick="changeImage(this)">
+
+    </div>
+
+</div>
+
+
+
+    <script>
+
+        
+        function addTask() {
+
+            var input = document.getElementById("taskInput");
+
+            var task = input.value;
+
+            if (task == "") {
+                alert("Please enter a task");
+                return;
+            }
+
+            var li = document.createElement("li");
+
+            li.textContent = task;
+
+            var deleteBtn = document.createElement("button");
+
+            deleteBtn.textContent = "Delete";
+
+            deleteBtn.className = "delete";
+
+            deleteBtn.addEventListener("click", function() {
+                li.remove();
+            });
+
+            li.appendChild(deleteBtn);
+
+            document.getElementById("taskList").appendChild(li);
+
+            input.value = "";
+        }
+
+
+        
+        function changeImage(image) {
+
+            document.getElementById("mainImage").src = image.src;
+
+        }
+
+    </script>
+
+</body>
+</html>
